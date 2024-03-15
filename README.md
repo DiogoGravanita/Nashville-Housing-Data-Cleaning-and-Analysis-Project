@@ -204,9 +204,23 @@ DROP COLUMN TaxDistrict
 
 Subsequently, attention is directed towards addressing null values within the dataset, particularly in columns crucial for our analysis. Initially, the prevalence of null values in key columns is assessed using a comprehensive SQL query.
 
-After identifying columns with significant null counts, a decision is made to remove rows containing null values in these columns to ensure the integrity and reliability of our analysis.
+```sql
+SELECT 
+    SUM(CASE WHEN Acreage IS NULL THEN 1 ELSE 0 END) AS Acreage_Null_Count,
+    SUM(CASE WHEN LandValue IS NULL THEN 1 ELSE 0 END) AS LandValue_Null_Count,    
+	SUM(CASE WHEN BuildingValue IS NULL THEN 1 ELSE 0 END) AS BuildingValue_Null_Count,
+    SUM(CASE WHEN TotalValue IS NULL THEN 1 ELSE 0 END) AS TotalValue_Null_Count,
+    SUM(CASE WHEN YearBuilt IS NULL THEN 1 ELSE 0 END) AS YearBuilt_Null_Count,   
+	SUM(CASE WHEN Bedrooms IS NULL THEN 1 ELSE 0 END) AS Bedrooms_Null_Count,
+    SUM(CASE WHEN FullBath IS NULL THEN 1 ELSE 0 END) AS FullBath_Null_Count,
+    SUM(CASE WHEN HalfBath IS NULL THEN 1 ELSE 0 END) AS HalfBath_Null_Count, 
+	SUM(CASE WHEN SalePrice IS NULL THEN 1 ELSE 0 END) AS SalePrice_Null_Count,  
+	SUM(CASE WHEN SaleDate IS NULL THEN 1 ELSE 0 END) AS SaleDate_Null_Count,  
+	SUM(CASE WHEN PropertyCity IS NULL THEN 1 ELSE 0 END) AS PropertyCity_Null_Count 
+from NashvilleHousing
+```
 
-The SQL query utilizes a combination of SUM and CASE statements to calculate the null count for each important column. Subsequently, rows with null values in any of these columns are selectively deleted from the dataset.
+After identifying columns with significant null counts, a decision is made to remove rows containing null values in these columns to ensure the integrity and reliability of our analysis.
 
 
 ```sql
