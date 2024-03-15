@@ -29,13 +29,13 @@ EDA involved exploring the Nashville Housing data to answer key questions, such 
 
 <br/><br/>
 
-### Data sources:
+## Data sources:
 
 The dataset used for this analysis is the "Nashville Housing Data.xlsx" file containing detailed information about the housing market in Nashville.
 
 <br/><br/>
 
-### Tools and Technologies:
+## Tools and Technologies:
 
  - Microsoft SQL Server Management Studio for data manipulation and analysis.
  - PowerBI for data visualization and statistical analysis.
@@ -43,7 +43,7 @@ The dataset used for this analysis is the "Nashville Housing Data.xlsx" file con
 
 <br/><br/>
 
-### Data cleaning and preparation:
+## Data cleaning and preparation:
 <br/><br/>
  - Cleaning Sale Date Column:
 
@@ -244,9 +244,9 @@ With this final step completed, the dataset is now prepared for visualization an
 
 <br/><br/>
 
-### Data visualization:
+## Data visualization:
 
-## Summary of Dashboard Insights
+### Summary of Dashboard Insights
 
 The dashboard presents a comprehensive overview of Nashville's housing market, offering valuable insights derived from diverse visualizations.
 
@@ -274,7 +274,7 @@ By presenting these insights in a clear and structured manner, the dashboard fac
 
 <br/><br/>
 
-#### Dashboard image:
+## Dashboard image:
 
 
 ![dashboard](https://github.com/DiogoGravanita/Nashville-Housing-Data-Cleaning-and-Analysis-Project/assets/163042130/8510bfba-9109-45b2-8665-f9b460959715)
