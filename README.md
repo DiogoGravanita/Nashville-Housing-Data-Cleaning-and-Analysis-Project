@@ -6,7 +6,7 @@ Welcome to the Nashville Housing Data Analysis Project! In this project, we delv
 
 <br/><br/>
 
-### Exploratory Data Analysis:
+## Exploratory Data Analysis:
 <br/><br/>
 EDA involved exploring the Nashville Housing data to answer key questions, such as:
 <br/><br/>
