@@ -45,7 +45,7 @@ The dataset used for this analysis is the "Nashville Housing Data.xlsx" file con
 
 ## Data cleaning and preparation:
 <br/><br/>
- - Cleaning Sale Date Column:
+### Cleaning Sale Date Column:
 
 Initially, we observed that the sale date column contained unnecessary hours and minutes information, all set to 00:00:00. To address this, we removed the extraneous time components to streamline the dataset.
 
