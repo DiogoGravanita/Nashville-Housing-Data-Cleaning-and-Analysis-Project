@@ -17,7 +17,7 @@ EDA involved exploring the Nashville Housing data to answer key questions, such 
 
 3. What is the distribution of housing types based on land use?.
 
-4.How has the total property value changed over the years?
+4. How has the total property value changed over the years?
 
 5. Are there any patterns in housing characteristics (e.g., bedrooms, bathrooms) that affect sale prices?
 
