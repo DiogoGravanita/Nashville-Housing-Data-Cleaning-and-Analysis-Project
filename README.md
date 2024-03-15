@@ -47,7 +47,7 @@ The dataset used for this analysis is the "Nashville Housing Data.xlsx" file con
 <br/><br/>
 ### Cleaning Sale Date Column:
 
-Initially, we observed that the sale date column contained unnecessary hours and minutes information, all set to 00:00:00. To address this, we removed the extraneous time components to streamline the dataset.
+Initially, it was observed that the sale date column contained unnecessary hours and minutes information, all set to 00:00:00. To address this, the extraneous time components were removed to streamline the dataset.
 
 ```sql
 
@@ -65,7 +65,8 @@ EXEC sp_rename 'NashvilleHousing.SaleDateConverted', 'SaleDate', 'COLUMN';
 <br/><br/>
 ### Addressing Null Property Addresses:
 
-Upon further examination, we discovered that some property address values were missing (null). Upon closer inspection, it became evident that these null entries corresponded to related entries in the dataset, sharing identical owner names, addresses, and property values. To rectify this inconsistency, we populated the null property addresses with the correct values.
+
+Upon further examination, it became evident that some property address values were missing (null). Closer inspection revealed that these null entries corresponded to related entries in the dataset, sharing identical owner names, addresses, and property values. To rectify this inconsistency, the null property addresses were populated with the correct values.
 
 ```sql
 Update a
@@ -77,7 +78,7 @@ JOIN NashvilleHousing b
 Where a.PropertyAddress is null
 ```
 
-This SQL statement updates null PropertyAddress values in the NashvilleHousing table by replacing them with non-null PropertyAddress values from another record in the same table, under the condition that they share the same ParcelID but have different Unique IDs. This ensures that we avoid inadvertently matching a record with itself.
+This SQL statement updates null PropertyAddress values in the NashvilleHousing table by replacing them with non-null PropertyAddress values from another record in the same table, under the condition that they share the same ParcelID but have different Unique IDs. This ensures that inadvertent matching of a record with itself is avoided.
 
 <br/><br/>
 
@@ -147,7 +148,7 @@ EXEC sp_rename 'NashvilleHousing.OwnerSplitState', 'OwnerState', 'COLUMN';
 <br/><br/>
 ### Standardizing 'SoldAsVacant' Values:
 
-Upon reviewing the distinct values in the 'SoldAsVacant' column, we observed variations such as 'Y', 'Yes', 'N', and 'No'. To ensure consistency and clarity, we aim to standardize these values, replacing 'Y' with 'Yes' and 'N' with 'No', while preserving existing 'Yes' and 'No' entries.
+Upon reviewing the distinct values in the 'SoldAsVacant' column, variations such as 'Y', 'Yes', 'N', and 'No' were observed. To ensure consistency and clarity, the aim is to standardize these values by replacing 'Y' with 'Yes' and 'N' with 'No', while preserving existing 'Yes' and 'No' entries.
 
 The provided SQL script utilizes a CASE statement to selectively update the 'SoldAsVacant' column based on the current values. Instances of 'Y' are replaced with 'Yes', instances of 'N' are replaced with 'No', and other values remain unchanged.
 
@@ -163,7 +164,7 @@ SET SoldAsVacant = CASE When SoldAsVacant = 'Y' THEN 'Yes'
 <br/><br/>
 ### Removing Duplicates:
 
-Next, we address the presence of duplicate records within the dataset. To achieve this, a common table expression (CTE) named 'RowNumCTE' is employed.
+Next, the presence of duplicate records within the dataset is addressed. To achieve this, a common table expression (CTE) named 'RowNumCTE' is employed.
 
 The CTE utilizes the ROW_NUMBER() function to assign a sequential number to each row, partitioned by specific columns (ParcelID, PropertyAddress, SalePrice, SaleDate, and LegalReference), and ordered by UniqueID. This facilitates the identification of duplicate records based on the specified criteria.
 
@@ -190,7 +191,7 @@ Where row_num > 1
 <br/><br/>
 ### Removing Tax District Column:
 
-Upon reviewing the dataset, it was determined that the 'TaxDistrict' column is not required for our data analysis purposes. Therefore, we proceed to remove this column from the 'NashvilleHousing' table.
+Upon reviewing the dataset, it was determined that the 'TaxDistrict' column is not required for data analysis purposes. Therefore, the decision was made to remove this column from the 'NashvilleHousing' table.
 
 The SQL script employs the ALTER TABLE statement with the DROP COLUMN clause to effectively eliminate the 'TaxDistrict' column from the dataset.
 
