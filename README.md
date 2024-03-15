@@ -246,7 +246,7 @@ With this final step completed, the dataset is now prepared for visualization an
 
 ### Data visualization:
 
- - Summary of Dashboard Insights
+##Summary of Dashboard Insights
 
 The dashboard presents a comprehensive overview of Nashville's housing market, offering valuable insights derived from diverse visualizations.
 
