@@ -78,7 +78,9 @@ Where a.PropertyAddress is null
 ```
 
 This SQL statement updates null PropertyAddress values in the NashvilleHousing table by replacing them with non-null PropertyAddress values from another record in the same table, under the condition that they share the same ParcelID but have different Unique IDs. This ensures that we avoid inadvertently matching a record with itself.
+
 <br/><br/>
+
  - Splitting Property Address:
 
 The script begins by enhancing the dataset's structure, aiming to improve data analysis by breaking down the combined property address into individual components: address and city. Two new columns, PropertySplitAddress and PropertySplitCity, are added to the NashvilleHousing table to accommodate these components.
