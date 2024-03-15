@@ -44,7 +44,7 @@ The dataset used for this analysis is the "Nashville Housing Data.xlsx" file con
 <br/><br/>
 
 ### Data cleaning and preparation:
-
+<br/><br/>
  - Cleaning Sale Date Column:
 
 Initially, we observed that the sale date column contained unnecessary hours and minutes information, all set to 00:00:00. To address this, we removed the extraneous time components to streamline the dataset.
@@ -62,7 +62,7 @@ DROP COLUMN SaleDate;
 
 EXEC sp_rename 'NashvilleHousing.SaleDateConverted', 'SaleDate', 'COLUMN';
 ```
-
+<br/><br/>
  - Addressing Null Property Addresses:
 
 Upon further examination, we discovered that some property address values were missing (null). Upon closer inspection, it became evident that these null entries corresponded to related entries in the dataset, sharing identical owner names, addresses, and property values. To rectify this inconsistency, we populated the null property addresses with the correct values.
@@ -78,7 +78,7 @@ Where a.PropertyAddress is null
 ```
 
 This SQL statement updates null PropertyAddress values in the NashvilleHousing table by replacing them with non-null PropertyAddress values from another record in the same table, under the condition that they share the same ParcelID but have different Unique IDs. This ensures that we avoid inadvertently matching a record with itself.
-
+<br/><br/>
  - Splitting Property Address:
 
 The script begins by enhancing the dataset's structure, aiming to improve data analysis by breaking down the combined property address into individual components: address and city. Two new columns, PropertySplitAddress and PropertySplitCity, are added to the NashvilleHousing table to accommodate these components.
@@ -107,7 +107,7 @@ DROP COLUMN PropertyAddress;
 EXEC sp_rename 'NashvilleHousing.PropertySplitAddress', 'PropertyAddress', 'COLUMN';
 EXEC sp_rename 'NashvilleHousing.PropertySplitCity', 'PropertyCity', 'COLUMN';
 ```
-
+<br/><br/>
  - Splitting Owner Address:
 
 Continuing the data refinement process, the script addresses the need to separate the owner's address into distinct components: address, city, and state. To achieve this, three new columns (OwnerSplitAddress, OwnerSplitCity, OwnerSplitState) are introduced to store these components.
@@ -142,7 +142,7 @@ EXEC sp_rename 'NashvilleHousing.OwnerSplitAddress', 'OwnerAddress', 'COLUMN';
 EXEC sp_rename 'NashvilleHousing.OwnerSplitCity', 'OwnerCity', 'COLUMN';
 EXEC sp_rename 'NashvilleHousing.OwnerSplitState', 'OwnerState', 'COLUMN';
 ```
-
+<br/><br/>
  - Standardizing 'SoldAsVacant' Values:
 
 Upon reviewing the distinct values in the 'SoldAsVacant' column, we observed variations such as 'Y', 'Yes', 'N', and 'No'. To ensure consistency and clarity, we aim to standardize these values, replacing 'Y' with 'Yes' and 'N' with 'No', while preserving existing 'Yes' and 'No' entries.
@@ -158,7 +158,7 @@ SET SoldAsVacant = CASE When SoldAsVacant = 'Y' THEN 'Yes'
 	   END
 ```
 
-
+<br/><br/>
  - Removing Duplicates:
 
 Next, we address the presence of duplicate records within the dataset. To achieve this, a common table expression (CTE) named 'RowNumCTE' is employed.
@@ -185,7 +185,7 @@ DELETE
 From RowNumCTE
 Where row_num > 1
 ```
-
+<br/><br/>
  - Removing Tax District Column:
 
 Upon reviewing the dataset, it was determined that the 'TaxDistrict' column is not required for our data analysis purposes. Therefore, we proceed to remove this column from the 'NashvilleHousing' table.
@@ -196,7 +196,7 @@ The SQL script employs the ALTER TABLE statement with the DROP COLUMN clause to 
 ALTER TABLE NashvilleHousing
 DROP COLUMN TaxDistrict
 ```
-
+<br/><br/>
  - Handling Null Values:
 
 Subsequently, attention is directed towards addressing null values within the dataset, particularly in columns crucial for our analysis. Initially, the prevalence of null values in key columns is assessed using a comprehensive SQL query.
@@ -221,7 +221,7 @@ WHERE Acreage IS NULL
    OR SaleDate IS NULL
    OR PropertyCity IS NULL;
 ```
-
+<br/><br/>
  - Removing Properties Sold Outside Nashville
 
 After preparing and refining the dataset, a final step is taken to focus exclusively on properties sold within the city limits of Nashville. This ensures that our analysis remains specific to Nashville's housing market.
