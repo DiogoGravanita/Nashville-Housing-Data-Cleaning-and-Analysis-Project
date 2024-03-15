@@ -322,7 +322,7 @@ The average total property value has exhibited relative stability over the years
 <br/><br/>
 
 ### Patterns in Housing Characteristics:
-Our analysis suggests that housing characteristics, particularly the number of bedrooms, have a notable impact on sale prices. Properties with a higher number of bedrooms tend to command higher prices, with a noticeable exponential growth trend beyond 10 bedrooms. However, due to the limited number of sales with 7+ bedrooms, further assessment is warranted in this regard.
+Our analysis suggests that housing characteristics, particularly the number of bedrooms, have a notable impact on sale prices. Properties with a higher number of bedrooms tend to command higher prices, with a noticeable exponential growth trend beyond 9 bedrooms. However, due to the limited number of sales with 7+ bedrooms, further assessment is warranted in this regard.
 
 <br/><br/>
 
